@@ -14,8 +14,10 @@ func main() {
 	c := openweather.NewClient(t)
 
 	r := openweather.Request{
-		Lat: 33.10,
-		Lon: -117.28,
+		Lat:   33.10,
+		Lon:   -117.28,
+		Lang:  "en",
+		Units: "metric",
 	}
 
 	w, err := c.Weather(context.Background(), r, openweather.CurrentWeatherDataSet)
