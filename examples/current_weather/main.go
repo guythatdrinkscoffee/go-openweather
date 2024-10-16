@@ -5,6 +5,7 @@ import (
 	"github.com/guythatdrinkscoffee/go-openweather"
 	"log"
 	"os"
+	"time"
 )
 
 func main() {
@@ -13,8 +14,8 @@ func main() {
 	c := openweather.NewClient(t)
 
 	r := openweather.Request{
-		Lat: 17.07,
-		Lon: -96.72,
+		Lat: 33.10,
+		Lon: -117.28,
 	}
 
 	w, err := c.Weather(context.Background(), r, openweather.CurrentWeatherDataSet)
@@ -22,5 +23,7 @@ func main() {
 		log.Fatalln(err)
 	}
 
-	log.Printf("\n City: %s \n Temp: %.2f \n Feels Like: %.2f", w.CurrentWeather.Name, w.CurrentWeather.Main.Temp, w.CurrentWeather.Main.FeelsLike)
+	curr := w.CurrentWeather
+
+	log.Printf("Current Location: %s, Temp: %.2fC, Sunrise: %v, Sunset: %v", curr.Name, curr.Main.Temp, time.Unix(curr.Sys.Sunrise, 0), time.Unix(curr.Sys.Sunset, 0))
 }

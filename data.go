@@ -28,10 +28,25 @@ type Wind struct {
 	Gust  float64 `json:"gust"`
 }
 
+type Rain struct {
+	OneHour    float64 `json:"1h"`
+	ThreeHours float64 `json:"3h"`
+}
+
+type Snow struct {
+	OneHour    float64 `json:"1h"`
+	ThreeHours float64 `json:"3h"`
+}
+
+type Clouds struct {
+	All int `json:"all"`
+}
+
 type Sys struct {
-	Country string `json:"country"`
-	Sunrise int64  `json:"sunrise"`
-	Sunset  int64  `json:"sunset"`
+	Country   string `json:"country"`
+	Sunrise   int64  `json:"sunrise"`
+	Sunset    int64  `json:"sunset"`
+	PartOfDay string `json:"pod"`
 }
 
 type City struct {
