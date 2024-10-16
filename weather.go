@@ -1,5 +1,17 @@
 package openweather
 
+type WeatherDataSet string
+
+const (
+	CurrentWeatherDataSet  WeatherDataSet = "weather"
+	ForecastWeatherDataSet WeatherDataSet = "forecast"
+)
+
+type WeatherResponse struct {
+	CurrentWeather  *CurrentWeatherResponse
+	ForecastWeather *ForecastWeatherResponse
+}
+
 type WeatherResponseData struct {
 	Coord      Coord     `json:"coord"`
 	Weather    []Weather `json:"weather"`
