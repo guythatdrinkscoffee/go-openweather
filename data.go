@@ -33,3 +33,13 @@ type Sys struct {
 	Sunrise int64  `json:"sunrise"`
 	Sunset  int64  `json:"sunset"`
 }
+
+type City struct {
+	ID       int64  `json:"id"`
+	Name     string `json:"name"`
+	Coord    Coord  `json:"coord"`
+	Country  string `json:"country"`
+	Timezone int64  `json:"timezone"`
+	Sunrise  int64  `json:"sunrise"`
+	Sunset   int64  `json:"sunset"`
+}
