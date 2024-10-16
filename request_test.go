@@ -32,3 +32,18 @@ func Test_requestUrl(t *testing.T) {
 		t.Errorf("have: %s, want: %s", have, want)
 	}
 }
+
+func TestRequest_url(t *testing.T) {
+	r := Request{
+		Lat: 44.10,
+		Lon: 22.10,
+	}
+
+	have := r.url("weather", "yourapitoken")
+
+	want := baseUrl + "/data/2.5/weather?appid=yourapitoken&lang=en&lat=44.10&lon=22.10&units=metric"
+
+	if have != want {
+		t.Errorf("have: %s, want: %s", have, want)
+	}
+}
